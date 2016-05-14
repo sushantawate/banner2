@@ -1,0 +1,99 @@
+// @import '_reset';
+@import '_config';
+@import '_mixins';
+body {
+    margin: 0;
+    padding: 0;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#mainContent {
+    position: relative;
+
+    overflow: hidden;
+
+    width: $width;
+    height: $height;
+    cursor: pointer;
+    transform: rotate(0deg);
+    border: 1px solid black;
+    background: $backgroundColor ;
+    background-size:cover;
+    box-sizing:border-box;
+}
+
+div, img {
+
+    position:absolute;
+}
+
+
+#mainImg {
+
+    background: url("../img/mainImage.jpg") no-repeat;
+    width:$width;
+    height:$height;
+    top:$height;
+    left:0px;
+}
+
+#clouds{
+    background: url("../img/clouds1.png") no-repeat;
+    width: 900px;
+    height: 230px;
+    top: 740px;
+    left: 0px;
+    position:absolute;
+    overflow:hidden;
+}
+
+
+#trukOne{
+    background: url("../img/truck_01.gif") no-repeat;
+    width:10px;
+    height:6px;
+    top:1073px;
+    // top: 473px;
+    left: 49px;
+}
+
+#trukTwo{
+    background: url("../img/truck_02.gif") no-repeat;
+    width:12px;
+    height:8px;
+    top: 1043px;
+    left: 38px;
+}
+
+#waterShimmer{
+
+    width: 39px;
+    height: 19px;
+    top: 321px;
+    left: -2px;
+    // background-color:red;
+}
+.shimmer{
+    width: 1px;
+    height: 1px;
+    background-color: #fff;
+    opacity: 1;
+    box-shadow: 0 0 1px 1px #FFF;
+    top: 6px;
+    left: 13px;
+}
+
+
+
+
+// #bg-exit {
+//     position: absolute;
+//     top: 100;
+//     left: 0;
+
+//     width: $width;
+//     height: $height*1;
+   
+// }

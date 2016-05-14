@@ -1,0 +1,72 @@
+@mixin imgReplace($img, $width, $height, $topAlign:top, $centerAlign:center, $color:null, $display: block) {
+    display:$display;
+    background:$color url("#{$img}") no-repeat $centerAlign $topAlign;
+    width: $width+px;
+    height: $height+px;
+    background-size: 100%;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+@mixin clearFix() {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin fixMargin() {
+    &:before, &:after {
+        content: "\00a0";       
+        display: block;
+        overflow: hidden; 
+        height: 0;
+    }
+}
+
+@mixin p-el($el, $el-width, $el-height) {
+  &:#{$el} {
+    @extend %pseudos;
+    width: $el-width;
+    height: $el-height;
+    @content;
+  }
+}
+
+%pseudos {
+  content: '';
+  position: absolute;
+}
+
+@mixin bgLinearGrad($col1, $col2, $pos1:top, $pos2:bottom){
+    background: -webkit-linear-gradient($pos1, $col1 0%,$col2 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient($pos1, $col1 0%,$col2 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient($pos1, $col1 0%,$col2 100%); /* IE10+ */
+    background: linear-gradient(to $pos2, $col1 0%,$col2 100%); /* W3C */
+
+}
+
+
+@mixin sharpen-image {
+  image-rendering:-moz-crisp-edges;
+  -ms-interpolation-mode:nearest-neighbor;  /* IE 7+ */
+}
+
+//
+//  When photos are upscaled or downscaled, they often get blurry. Don't use
+//  this on flat color images, they will still appear blurry.
+//  @see https://developer.mozilla.org/en/CSS/image-rendering
+//
+@mixin high-quality-image {
+  image-rendering:optimizeQuality;
+  -ms-interpolation-mode:bicubic;  /* IE 7+ */
+}
+
+//
+//  Optimizes the rendering on images so they
+//  appear faster, but at a lower quality. Useful for <video>
+//
+@mixin low-quality-image {
+  image-rendering:optimizeSpeed;
+}
